@@ -1,4 +1,8 @@
 import { useState } from "react";
+import shoppingBagIcon from "./assets/shopping-bag-icon.svg";
+import hamburgerIcon from "./assets/hamburger-icon.svg";
+import closeIcon from "./assets/close-icon.svg";
+import logo from "./assets/logo.svg";
 
 function App() {
 
@@ -13,8 +17,9 @@ function App() {
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <a href="/" className="text-xl font-bold text-indigo-700">
-                Logo | Brand
+                <img src={logo} />
               </a>
+              { isOpen && <button className="p-1"><img src={closeIcon} /></button> }
             </div>
 
             {/* Desktop menu */}
@@ -27,28 +32,15 @@ function App() {
 
           {/* Group Icons / Buttons */}
           <div className="flex items-center gap-4">
-            <span>Shopping Cart</span>
+            <img src={shoppingBagIcon} alt="Shopping cart" />
             {/* Mobile hamburger */}
             <div className="flex items-center md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-gray-700 hover:text-indigo-700 focus:outline-none"
               >
-                {isOpen ? (
-                  // Close icon
-                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                ) : (
-                  // Hamburger icon
-                  <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
-                )}
+                {/* Hamburger icon */}
+                <img src={hamburgerIcon} alt="Hamburger icon" />
               </button>
             </div>
           </div>
