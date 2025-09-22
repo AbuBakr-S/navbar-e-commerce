@@ -10,8 +10,8 @@ function App() {
 
   return (
     <nav>
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
-        <div className="flex justify-between h-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-8 mt-8 mb-4">
+        <div className="flex justify-between">
 
           <div className="flex gap-26">
             {/* Logo */}
@@ -19,11 +19,6 @@ function App() {
               <a href="/" className="text-xl font-bold text-indigo-700">
                 <img src={logo} />
               </a>
-              { isOpen && (
-                <button className="p-1" onClick={() => setIsOpen(false)}>
-                  <img src={closeIcon} />
-                </button>
-              )}
             </div>
 
             {/* Desktop menu */}
@@ -55,15 +50,35 @@ function App() {
       {/* Mobile menu */}
       {isOpen && (
         <>
-          {/* Dim overlay */}
-          <div
-            onClick={() => setIsOpen(false)}
-            className="fixed top-0 right-0 h-full w-3/5 bg-neutral-950/70 md:hidden"
-          />
+          {/* Mobile container */}
+          <div className="fixed inset-0 flex md:hidden">
+            {/* Nav panel */}
+            <div className="w-[157px] bg-white z-50 flex flex-col gap-6 pl-4 pt-6 pb-3">
+              {/* Logo + Close button */}
+              <div className="flex items-center justify-between w-[125px]">
+                <a href="/">
+                  <img src={logo} alt="Logo" />
+                </a>
+                <button 
+                  className="flex items-center justify-center w-5 h-5"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <img src={closeIcon} alt="Close menu" className="w-5 h-5 p-1" />
+                </button>
+              </div>
 
-          <div className="md:hidden flex flex-col gap-4 pl-4 pt-6 pb-3 relative z-50">
-            <a href="#" className="block text-gray-700 hover:text-indigo-700 py-2 pl-3">Shop all</a>
-            <a href="#" className="block text-gray-700 hover:text-indigo-700 py-2 pl-3">Latest arrivals</a>
+              {/* Nav links */}
+              <div className="flex flex-col gap-2">
+                <a href="#" className="block text-gray-700 hover:text-indigo-700 px-3 py-2">Shop all</a>
+                <a href="#" className="block text-gray-700 hover:text-indigo-700 px-3 py-2">Latest arrivals</a>
+              </div>
+            </div>
+
+            {/* Dim overlay */}
+            <div
+              onClick={() => setIsOpen(false)}
+              className="flex-1 bg-neutral-950/70"
+            />
           </div>
         </>
       )}
