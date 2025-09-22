@@ -19,7 +19,11 @@ function App() {
               <a href="/" className="text-xl font-bold text-indigo-700">
                 <img src={logo} />
               </a>
-              { isOpen && <button className="p-1"><img src={closeIcon} /></button> }
+              { isOpen && (
+                <button className="p-1" onClick={() => setIsOpen(false)}>
+                  <img src={closeIcon} />
+                </button>
+              )}
             </div>
 
             {/* Desktop menu */}
@@ -50,10 +54,18 @@ function App() {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden px-2 pt-2 pb-3 space-y-1">
-          <a href="#" className="block text-gray-700 hover:text-indigo-700">Shop all</a>
-          <a href="#" className="block text-gray-700 hover:text-indigo-700">Latest arrivals</a>
-        </div>
+        <>
+          {/* Dim overlay */}
+          <div
+            onClick={() => setIsOpen(false)}
+            className="fixed top-0 right-0 h-full w-3/5 bg-neutral-950/70 md:hidden"
+          />
+
+          <div className="md:hidden flex flex-col gap-4 pl-4 pt-6 pb-3 relative z-50">
+            <a href="#" className="block text-gray-700 hover:text-indigo-700 py-2 pl-3">Shop all</a>
+            <a href="#" className="block text-gray-700 hover:text-indigo-700 py-2 pl-3">Latest arrivals</a>
+          </div>
+        </>
       )}
     </nav>
   );
