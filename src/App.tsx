@@ -9,8 +9,8 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="min-w-[375px]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-8 mt-8 mb-4">
+    <nav className="min-w-[375px] px-5 py-4 mt-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-8">
         <div className="flex justify-between">
 
           <div className="flex gap-26">
