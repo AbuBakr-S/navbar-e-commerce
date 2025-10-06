@@ -39,6 +39,7 @@ const App = () => {
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
+              aria-label='Open menu'
               className="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none"
             >
               <img
