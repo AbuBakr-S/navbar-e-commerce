@@ -7,6 +7,7 @@ import logo from "./assets/logo.svg";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(8);
+  const [isDisabled] = useState(false);
 
   return (
     <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
@@ -40,12 +41,15 @@ function App() {
           {/* Group Icons / Buttons */}
           <div className="flex items-center gap-4">
             <button
-              className="relative rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12"
+              className={`relative rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12
+                ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
               aria-label="Shopping cart"
+              disabled={isDisabled}
             >
               <img src={shoppingBagIcon} alt="Shopping cart" className="w-6 h-6" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 text-[10px] font-semibold text-white bg-indigo-700 rounded-full">
+                <span className={`absolute -top-1 -right-1 flex items-center justify-center w-4 h-4 text-[10px] font-semibold rounded-full
+                  ${isDisabled ? 'bg-neutral-100' : 'bg-indigo-700 text-white'}`}>
                   {cartCount}
                 </span>
               )}
