@@ -9,7 +9,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="min-w-[375px] px-5 py-4 mt-4">
+    <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-8">
         <div className="flex justify-between">
 
@@ -23,8 +23,8 @@ function App() {
 
             {/* Desktop menu */}
             <div className="hidden md:flex space-x-8 items-center">
-              <a href="#" className="text-gray-700 hover:text-indigo-700">Shop all</a>
-              <a href="#" className="text-gray-700 hover:text-indigo-700">Latest arrivals</a>
+              <a href="#" className="text-gray-700 hover:text-neutral-900 focus:ring-4 focus:ring-indigo-600/12 rounded-lg">Shop all</a>
+              <a href="#" className="text-gray-700 hover:text-neutral-900 focus:ring-4 focus:ring-indigo-600/12 rounded-lg">Latest arrivals</a>
             </div>
           </div>
           
