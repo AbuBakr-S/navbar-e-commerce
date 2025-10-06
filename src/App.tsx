@@ -7,7 +7,7 @@ import logo from "./assets/logo.svg";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(8);
-  const [isDisabled] = useState(true);
+  const [isDisabled] = useState(false);
 
   return (
     <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
