@@ -9,6 +9,11 @@ function App() {
   const [cartCount] = useState(8);
   const [isDisabled] = useState(false);
 
+  const navLinks = [
+    { label: "Shop all", href: "#" },
+    { label: "Latest arrivals", href: "#" },
+  ];
+
   return (
     <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8 h-8">
@@ -23,20 +28,18 @@ function App() {
 
             {/* Desktop menu */}
             <div className="hidden md:flex space-x-8 items-center">
-              <a
-                href="#"
-                className={`${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 
+              {navLinks.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={isDisabled ? undefined : href}
+                  aria-disabled={isDisabled}
+                  tabIndex={isDisabled ? -1 : 0}
+                  className={`${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 
                   'cursor-pointer hover:text-neutral-900 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12 text-gray-700 rounded'}`}
-              >
-                Shop all
-              </a>
-              <a
-                href="#"
-                className={`${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 
-                  'cursor-pointer hover:text-neutral-900 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12 text-gray-700 rounded'}`}
-              >
-                Latest arrivals
-              </a>
+                >
+                  {label}
+                </a>
+              ))}
             </div>
           </div>
 
@@ -90,18 +93,16 @@ function App() {
 
               {/* Nav links */}
               <div className="flex flex-col gap-2">
-                <a 
-                  aria-disabled={isDisabled}
-                  href="#" 
-                  className={`block px-3 py-2 ${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 'text-gray-700 hover:text-indigo-700'}`}>
-                    Shop all
-                </a>
-                <a
-                  aria-disabled={isDisabled}
-                  href="#" 
-                  className={`block px-3 py-2 ${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 'text-gray-700 hover:text-indigo-700'}`}>
-                    Latest arrivals
-                </a>
+                {navLinks.map(({ label, href }) => (
+                  <a
+                    key={label}
+                    href={isDisabled ? undefined : href}
+                    aria-disabled={isDisabled}
+                    tabIndex={isDisabled ? -1 : 0}
+                    className={`block px-3 py-2 ${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 'text-gray-700 hover:text-indigo-700'}`}>
+                    {label}
+                  </a>
+                ))}
               </div>
             </div>
 
