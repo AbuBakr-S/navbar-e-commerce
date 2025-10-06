@@ -7,7 +7,7 @@ import logo from "./assets/logo.svg";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [cartCount] = useState(8);
-  const [isDisabled] = useState(false);
+  const [isDisabled] = useState(true);
 
   return (
     <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
@@ -25,13 +25,15 @@ function App() {
             <div className="hidden md:flex space-x-8 items-center">
               <a
                 href="#"
-                className="text-gray-700 hover:text-neutral-900 rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12"
+                className={`${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 
+                  'cursor-pointer hover:text-neutral-900 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12 text-gray-700 rounded'}`}
               >
                 Shop all
               </a>
               <a
                 href="#"
-                className="text-gray-700 hover:text-neutral-900 rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12"
+                className={`${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 
+                  'cursor-pointer hover:text-neutral-900 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12 text-gray-700 rounded'}`}
               >
                 Latest arrivals
               </a>
@@ -88,11 +90,17 @@ function App() {
 
               {/* Nav links */}
               <div className="flex flex-col gap-2">
-                <a href="#" className="block text-gray-700 hover:text-indigo-700 px-3 py-2">
-                  Shop all
+                <a 
+                  aria-disabled={isDisabled}
+                  href="#" 
+                  className={`block px-3 py-2 ${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 'text-gray-700 hover:text-indigo-700'}`}>
+                    Shop all
                 </a>
-                <a href="#" className="block text-gray-700 hover:text-indigo-700 px-3 py-2">
-                  Latest arrivals
+                <a
+                  aria-disabled={isDisabled}
+                  href="#" 
+                  className={`block px-3 py-2 ${isDisabled ? 'text-neutral-400 cursor-not-allowed' : 'text-gray-700 hover:text-indigo-700'}`}>
+                    Latest arrivals
                 </a>
               </div>
             </div>
