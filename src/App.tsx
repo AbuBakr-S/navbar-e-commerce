@@ -62,7 +62,7 @@ const App = () => {
           role="dialog"
           aria-modal="true"
         >
-          <div className="w-[157px] bg-white z-50 flex flex-col gap-6 pl-4 pt-6 pb-3">
+          <div className="w-[157px] bg-white z-50 flex flex-col gap-6 pl-4 pt-6 pb-3 pr-1">
             {/* Logo + Close */}
             <div className="flex items-center justify-between w-[125px]">
               <a href="/" aria-label="Home">

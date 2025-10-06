@@ -30,7 +30,7 @@ const NavLinks: React.FC<NavLinksProps> = ({
           isDisabled
             ? "text-neutral-400 cursor-not-allowed pointer-events-none"
             : mobile
-            ? "text-gray-700 hover:text-indigo-700" // Mobile: simpler hover
+            ? "cursor-pointer hover:text-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-600/20 text-gray-700 rounded"
             : "cursor-pointer hover:text-neutral-900 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12 text-gray-700 rounded" // Desktop: hover + focus ring
         }`}
       >
