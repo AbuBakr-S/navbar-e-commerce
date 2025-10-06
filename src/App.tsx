@@ -6,10 +6,10 @@ import closeIcon from "./assets/close-icon.svg";
 import NavLinks from "./components/NavLinks";
 import CartButton from "./components/CartButton";
 
-function App() {
+const App = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDisabled] = useState(true);
-  const [cartCount] = useState(8);
+  const [isDisabled] = useState(false);
+  const [cartCount] = useState(0);
 
   const navLinks = [
     { label: "Shop all", href: "#" },
@@ -22,7 +22,7 @@ function App() {
         <div className="flex justify-between items-center">
           {/* Logo + Desktop Nav */}
           <div className="flex items-center gap-10">
-            <a href="/" aria-label="Home">
+            <a href="/" aria-label="Home" className="focus:outline-none">
               <img src={logo} alt="Brand logo" className="h-8" />
             </a>
 
