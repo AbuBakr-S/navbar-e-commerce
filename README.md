@@ -1,69 +1,102 @@
-# React + TypeScript + Vite
+# Navbar E-Commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive **React** navigation bar with a mobile-friendly menu and shopping cart functionality. Built with **React**, **Tailwind CSS**, and **TypeScript**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Responsive navigation bar**  
+  Desktop and mobile-friendly layout using Tailwind CSS breakpoints.
+- **Mobile menu with overlay**  
+  Slide-in mobile menu with a close button and background overlay.
+- **Cart button with item count**  
+  Displays the number of items in the cart.
+- **Accessible**  
+  Uses proper ARIA attributes (`aria-expanded`, `aria-controls`, `role="dialog"`, `aria-modal`) for navigation and menus.
+- **Easy to extend**  
+  Navigation links can be updated dynamically via the `navLinks` array.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Screenshots / Demo
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+**Desktop Navigation:**
+![Desktop Nav](./screenshots/desktop-nav.png)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Mobile Menu:**
+![Mobile Menu](./screenshots/mobile-menu.png)
+
+**Cart Button:**
+![Cart Button](./screenshots/cart-button.png)
+
+> Add screenshots in `./screenshots/` folder for clarity.
+
+---
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/navbar-e-commerce.git
+cd navbar-e-commerce
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+# or
+yarn install
 ```
+
+### 3. Run the app locally
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Project Structure
+
+```
+src/
+  assets/       # Logo and icons
+  components/   # NavLinks, CartButton components
+  App.tsx       # Main app component
+```
+
+- **App.tsx** – Contains the main navigation logic and mobile menu state.  
+- **NavLinks.tsx** – Renders navigation links dynamically.  
+- **CartButton.tsx** – Shows the shopping cart with item count.  
+
+---
+
+## Customisation
+
+- Update navigation links:
+
+```ts
+const navLinks = [
+  { label: "Shop all", href: "#" },
+  { label: "Latest arrivals", href: "#" },
+];
+```
+
+- Adjust the cart count dynamically by changing the `cartCount` state in `App.tsx`.
+- Enable/disable navigation links with `isDisabled`.
+
+---
+
+## Tech Stack
+
+- React + TypeScript
+- Tailwind CSS
+- Vite
+- Cypress (for end-to-end testing)
