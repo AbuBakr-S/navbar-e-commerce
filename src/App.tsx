@@ -23,15 +23,17 @@ function App() {
 
             {/* Desktop menu */}
             <div className="hidden md:flex space-x-8 items-center">
-              <a href="#" className="text-gray-700 hover:text-neutral-900 focus:ring-4 focus:ring-indigo-600/12 rounded-lg">Shop all</a>
-              <a href="#" className="text-gray-700 hover:text-neutral-900 focus:ring-4 focus:ring-indigo-600/12 rounded-lg">Latest arrivals</a>
+              <a href="#" className="text-gray-700 hover:text-neutral-900 rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12">Shop all</a>
+              <a href="#" className="text-gray-700 hover:text-neutral-900 rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12">Latest arrivals</a>
             </div>
           </div>
           
 
           {/* Group Icons / Buttons */}
           <div className="flex items-center gap-4">
-            <img src={shoppingBagIcon} alt="Shopping cart" />
+            <button className="rounded focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-600/12">
+              <img src={shoppingBagIcon} alt="Shopping cart" />
+            </button>
             {/* Mobile hamburger */}
             <div className="flex items-center md:hidden">
               <button
