@@ -7,6 +7,7 @@ import shoppingBagIcon from "./assets/shopping-bag-icon.svg"
 
 const App = () => {
   const [cartCount] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { label: "Shop all", href: "#" },
@@ -22,9 +23,11 @@ const App = () => {
       hamburgerIcon={hamburgerIcon}
       closeIcon={closeIcon}
       shoppingBagIcon={shoppingBagIcon}
+      isMenuOpen={isOpen}
+      onToggleMenu={() => setIsOpen((open) => !open)}
+      onCloseMenu={() => setIsOpen(false)}
     />
   )
-
 }
 
 export default App;

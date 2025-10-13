@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import NavLinks from "./NavLinks";
 import CartButton from "./CartButton";
 
@@ -12,6 +12,9 @@ export type NavbarProps = {
   closeIcon: string;
   isDisabled?: boolean;
   shoppingBagIcon: string;
+  isMenuOpen: boolean;
+  onToggleMenu: () => void;
+  onCloseMenu: () => void;
 };
 
 const Navbar: React.FC<NavbarProps> = ({
@@ -20,10 +23,12 @@ const Navbar: React.FC<NavbarProps> = ({
   isDisabled = false,
   logoSrc,
   hamburgerIcon,
-  shoppingBagIcon
+  closeIcon,
+  shoppingBagIcon,
+  isMenuOpen,
+  onToggleMenu,
+  onCloseMenu,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav className="min-w-[375px] px-5 py-4 mt-4 text-neutral-600">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-8">
@@ -41,11 +46,11 @@ const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center gap-4">
             <CartButton count={cartCount} isDisabled={isDisabled} iconSrc={shoppingBagIcon} />
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              aria-expanded={isOpen}
+              onClick={onToggleMenu}
+              aria-expanded={isMenuOpen}
               aria-controls="mobile-menu"
               aria-label="Open menu"
-              className="md:hidden text-gray-700 hover:text-indigo-700 focus:outline-none"
+              className="md:hidden text-gray-700 focus:outline-none"
             >
               <img src={hamburgerIcon} alt="Open menu" className="w-6 h-6" aria-hidden="true" />
               <span className="sr-only">Open menu</span>
@@ -54,7 +59,7 @@ const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
       {/* Mobile Menu */}
-      {isOpen && (
+      {isMenuOpen && (
         <div
           id="mobile-menu"
           className="fixed inset-0 z-50 flex md:hidden transition-all duration-300"
@@ -68,11 +73,11 @@ const Navbar: React.FC<NavbarProps> = ({
                 <img src={logoSrc} alt="Brand logo" className="h-8" />
               </a>
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={onCloseMenu}
                 aria-label="Close menu"
                 className="flex items-center justify-center w-5 h-5"
               >
-                <img src={shoppingBagIcon} alt="" className="w-5 h-5 p-1" aria-hidden="true" />
+                <img src={closeIcon} alt="" className="w-5 h-5 p-1" aria-hidden="true" />
               </button>
             </div>
             {/* Mobile Nav Links */}
@@ -82,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({
           </div>
           {/* Overlay */}
           <div
-            onClick={() => setIsOpen(false)}
+            onClick={onCloseMenu}
             className="flex-1 bg-neutral-950/70"
           />
         </div>
