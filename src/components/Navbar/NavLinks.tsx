@@ -1,19 +1,12 @@
 import React from "react";
+import type { NavLink } from "./Navbar";
 
-// Define the shape of a single navigation link
-type NavLink = {
-  label: string;
-  href: string;
-};
-
-// Props for the NavLinks component
 type NavLinksProps = {
-  links: NavLink[];         // Array of navigation links
-  isDisabled?: boolean;     // If true, disables all links
-  mobile?: boolean;         // If true, applies mobile-specific styles
+  links: NavLink[];
+  isDisabled?: boolean;
+  mobile?: boolean;
 };
 
-// Stateless, prop-driven NavLinks component
 const NavLinks: React.FC<NavLinksProps> = ({
   links,
   isDisabled = false,

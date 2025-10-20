@@ -24,7 +24,7 @@ const App = () => {
       closeIcon={closeIcon}
       shoppingBagIcon={shoppingBagIcon}
       isMenuOpen={isOpen}
-      onToggleMenu={() => setIsOpen((open) => !open)}
+      onToggleMenu={() => setIsOpen(open => !open)}
       onCloseMenu={() => setIsOpen(false)}
     />
   )
